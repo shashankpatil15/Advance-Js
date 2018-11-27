@@ -29,10 +29,15 @@ alert(17%3)*/
 
 // Boolean Operator
 
-alert( 2 > 1 )
+/*alert( 2 > 1 )
 alert( 4 > 5 )
 
 alert('shashank' > 'shaniket')
 
-alert('01' == 1) 
+alert('01' == 1) */
+
+//Exponential operator
+console.log(2 ** 2);
+console.log(2 ** 3);
+
 
