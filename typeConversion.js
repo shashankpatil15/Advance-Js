@@ -1,11 +1,23 @@
-let value = true
-alert(typeof value)
+//toString 
 
-value = String(value) //type conversion
-alert(typeof value)
+let value = true;
+console.log(typeof value);
 
-let age = 50
-alert(typeof age)
+value = String(value);
+console.log(typeof value);
 
-age = Boolean(age)
-alert(typeof age)
+//toNumber
+
+let str = "123";
+console.log(typeof str);
+
+let num = Number(str);
+console.log(typeof num);
+
+//toBoolean
+
+console.log( Boolean(1) ); // true
+console.log( Boolean(0) ); // false
+
+console.log( Boolean("hello") ); // true
+console.log( Boolean("") ); // false

@@ -1,43 +1,70 @@
-'use strict'
+let x =1;
+console.log(-x);
 
-/*let x=1
+let y=2;
+console.log(x-y);
 
-alert(-x)*/
+console.log(2+2+2+2+2+'2');
 
-/*let x = 100
-let y = 20
+console.log(2-'1');
+console.log(2*'2');
+console.log('10'/ '2');
 
-alert(x+y)*/
+let a= '2';
+let b= '3';
 
-//Assignment
+console.log(a+b);
+console.log(+a + +b);
 
-/*let a,b,c
+console.log(2+2*2);
+console.log((2+2)*2);
 
-alert(a=2*2*10)
+console.log(3-(a*b));
 
-a=b=c=89
-
-alert(a)
-alert(b)
-alert(c)
-
-//Reminder %
-
-alert(100%2)
-alert(200%4)
-alert(17%3)*/
-
-// Boolean Operator
-
-/*alert( 2 > 1 )
-alert( 4 > 5 )
-
-alert('shashank' > 'shaniket')
-
-alert('01' == 1) */
-
-//Exponential operator
 console.log(2 ** 2);
-console.log(2 ** 3);
+console.log(4 ** (1/2));
+console.log(27 ** (1/3));
 
+console.log(a++);
+//console.log(5++); Invalid left-hand side expression in postfix operation
+
+let counter=1;
+console.log(counter++);
+console.log(++counter);
+
+//comma operator
+
+let comma=(1+2,3+4);
+console.log(comma);
+
+//string 
+
+console.log('z' > 'a')
+console.log('A' > 'Z');
+console.log('Hello' > 'Bello');
+console.log('bee' > 'be');
+
+console.log('2' >1);
+console.log('01' == 1);
+
+let a1 = 0;
+console.log( Boolean(a1) ); // false
+let b1 = "0";
+console.log( Boolean(b1) ); // true
+console.log(a1 == b1); // true!
+
+// null results
+
+console.log(null == 0);
+console.log(''==0);
+console.log(null > 0);
+console.log(null==0);
+console.log(null>=0);
+
+console.log(undefined > 0);
+console.log(undefined==0);
+console.log(undefined>=0);
+
+console.log(undefined==null);
+console.log(undefined / null); //Evade problem How to solve this
 
