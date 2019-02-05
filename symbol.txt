@@ -1,0 +1,88 @@
+/* object property keys may be either of string type, o
+r of symbol type. Not numbers, not booleans, only strings or symbols, these two types.
+
+Object Key:-
+
+const obj = {
+          name :"john",
+          age :22
+          };
+console.log(Object.keys(obj));
+//[name, age]
+
+/........................................
+“Symbol” value represents a unique identifier.
+A value of this type can be created using Symbol()
+let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+alert(id1 == id2); // false
+
+/......................
+implicite conversion
+avaScript is very tolerant when it comes to accepting values. For example, everywhere it expects a number, it does not reject values from other types, but tries to convert them:
+
+    > '5' - '2'
+    3
+    > '5' * '2'
+    10
+Automatic conversion to boolean is rarely problematic and often useful. It is covered here as a preparation for later – we’ll use it to work around quirks. Automatic conversion to string, however, can cause problems.
+
+/..............................
+let id = Symbol("id");
+alert(id); // TypeError: Cannot convert a Symbol value to a string
+
+correct:- alert("id");
+/..........................................
+“Hidden” properties
+
+let user = { name: "John" };
+let id = Symbol("id");
+
+user[id] = "ID Value";
+alert( user[id] ); // we can access the data using the symbol as the key
+
+without sysmbol we have overwritten problem
+
+let user = { name: "John" };
+
+// our script uses "id" property
+user.id = "ID Value";
+
+// ...if later another script the uses "id" for its purposes...
+
+user.id = "Their id value"
+// boom! overwritten! it did not mean to harm the colleague, but did it!
+
+/...................................................................................................
+Symbolic properties do not participate in for..in loop.
+/.......................................................................
+Global symbols
+// read from the global registry
+let id = Symbol.for("id"); // if the symbol did not exist, it is created
+
+// read it again
+let idAgain = Symbol.for("id");
+
+// the same symbol
+alert( id === idAgain ); // true
+/....................................................................
+Symbol.keyFor(sym)--that does the reverse: returns a name by a global symbol
+
+
+let sym = Symbol.for("name");
+let sym2 = Symbol.for("id");
+
+// get name from symbol
+alert( Symbol.keyFor(sym) ); // name
+alert( Symbol.keyFor(sym2) ); // id
+/..................................................................................
+it doesn’t work for non-global symbols
+
+alert( Symbol.keyFor(Symbol.for("name")) ); // name, global symbol
+
+alert( Symbol.keyFor(Symbol("name2")) ); // undefined, the argument isn't a global symbol
+/...............................................................................................
+
+
+*/

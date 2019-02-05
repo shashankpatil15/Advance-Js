@@ -1,0 +1,85 @@
+/*
+Object methods, "this"
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+user.sayHi = function() {
+  alert("Hello!");
+};
+
+user.sayHi(); // Hello!
+
+/...............Shorhand
+// these objects do the same
+
+let user = {
+  sayHi: function() {
+    alert("Hello");
+  }
+};
+
+// method shorthand looks better, right?
+let user = {
+  sayHi() { // same as "sayHi: function()"
+    alert("Hello");
+  }
+};
+/......................... the notations are not fully identical
+by using "this"
+
+let user = {
+  name: "John",
+  age: 30,
+
+  sayHi() {
+    alert(this.name);
+  }
+
+};
+
+user.sayHi(); // John
+/.............................................
+let user = {
+  name: "John",
+  age: 30,
+
+  sayHi() {
+    alert(user.name); // "user" instead of "this"
+  }
+
+};
+/..............................................
+let user = {
+  name: "John",
+  age: 30,
+
+  sayHi() {
+    alert( user.name ); // leads to an error
+  }
+
+};
+
+
+let admin = user;
+user = null; // overwrite to make things obvious
+
+admin.sayHi(); // Whoops! inside sayHi(), the old name is used! error!
+//////////////////////////////////////////////////////////////..................................................................
+Arrow functions have no “this”
+
+let user = {
+  firstName: "Ilya",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
+
+user.sayHi(); // Ilya
+
+
+
+*/ 

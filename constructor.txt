@@ -1,0 +1,30 @@
+/* 
+They are named with capital letter first.
+They should be executed only with "new" operator.
+/.........................................
+Dual-syntax constructors: new.target
+
+function User() {
+  alert(new.target);
+}
+
+// without "new":
+User(); // undefined
+
+// with "new":
+new User(); // function User { ... }
+/..........................................
+function User(name) {
+  if (!new.target) { // if you run me without new
+    return new User(name); // ...I will add new for you
+  }
+
+  this.name = name;
+}
+
+let john = User("John"); // redirects call to new User
+alert(john.name); // John
+/...............................................
+constructors do not have a return statement. Their task is to write all necessary stuff into this, and it automatically becomes the result.
+
+*/
