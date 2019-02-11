@@ -1,16 +1,50 @@
-let firstName = 'shashank'
-let middleName = 'premraj'
-let lastName = 'wankhade' 
-let contact = 8275791862
-let emailId = 'shashankpatil1591@gmail.com'
-let salary = 29560.32
-const department = 'Computer'
+/**
+ * There are two main differences of var:
 
-console.log(firstName,middleName,lastName)
-console.log(contact)
-console.log(emailId)
-console.log(salary)
-console.log('This is example of variable in JavaScript')
+Variables have no block scope, they are visible minimum at the function level.
+Variable declarations are processed at function start.
+ */
+function sayHi() {
+    var phrase = "Hello"; // local variable, "var" instead of "let"
+  
+    console.log(phrase); // Hello
+  }
+  
+  sayHi();
+  
+  console.log(phrase); // Error, phrase is not defined
 
-console.log(department)
-// console.log(department = 'Entc')  this is for showing costant variable
+  /** */
+  function sayHi() {
+    console.log(phrase);
+  
+    var phrase = "Hello";
+  }
+  
+  sayHi();
+
+  /** */
+  function sayHi() {
+    var phrase; // declaration works at the start...
+  
+    console.log(phrase); // undefined
+  
+    phrase = "Hello"; // ...assignment - when the execution reaches it.
+  }
+  
+  sayHi();
+
+  /**GLOBAL VARIABLE BY USING WINDOWS.VARIABLENAME */
+  /**
+   * To access exactly the global variable if the function has the local one with the same name.
+   */
+  var user = "Global";
+
+    function sayHi() {
+    var user = "Local";
+
+    alert(window.user); // Global
+    }
+
+    sayHi();
+    
