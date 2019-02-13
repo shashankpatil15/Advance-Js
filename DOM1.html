@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+</head>
+<body>
+    <!--script>
+        /* DOM is not only for browsers:- 
+            The DOM specification explains the structure of a document 
+            and provides objects to manipulate it. There are non-browser 
+            instruments that use it too.
+
+            ** CSSOM for styling Link:- https://www.w3.org/TR/cssom-1/
+            ** According to Document Object Model (DOM), every HTML-tag is an object.
+             Nested tags are called “children” of the enclosing one.
+
+             ** Spaces and newlines before <head> are ignored for historical reasons,
+                If we put something after </body>, then that is automatically moved inside 
+                the body, at the end, as the HTML spec requires that all content must be inside 
+                <body>. So there may be no spaces after </body>.
+
+            ** Autocorrection :- While generating the DOM, browsers automatically process errors in the document, close tags and so on.
+                <p>Hello
+                <li>Mom
+                <li>and
+                <li>Dad
+                Will become a normal DOM, as the browser reads tags and restores the missing parts
+            ** Everything in HTML, even comments, becomes a part of the DOM.
+            ** There are 12 node types. In practice we usually work with 4 of them:
+                document – the “entry point” into DOM.
+                element nodes – HTML-tags, the tree building blocks.
+                text nodes – contain text.
+                comments – sometimes we can put the information there, it won’t be shown,
+                but JS can read it from the DOM.    
+            Link:- https://dom.spec.whatwg.org/#node
+
+            *** A script cannot access an element that doesn’t exist at the moment of running.
+            In particular, if a script is inside <head>, then document.body is unavailable, 
+            because the browser did not read it yet.
+            <html>
+            <head>
+            <script>
+                alert( "From HEAD: " + document.body ); // null, there's no <body> yet
+            </script>
+            </head>
+            <body>
+            <script>
+                alert( "From BODY: " + document.body ); // HTMLBodyElement, now it exists
+            </script>
+            </body>
+            </html-->
+
+            ** The childNodes collection provides access to all child nodes, including text nodes.
+            <!--
+                <html>
+                    <body>
+                    <div>Begin</div>
+
+                    <ul>
+                        <li>Information</li>
+                    </ul>
+
+                    <div>End</div>
+
+                    <script>
+                        for (let i = 0; i < document.body.childNodes.length; i++) {
+                        alert( document.body.childNodes[i] ); // Text, DIV, Text, UL, ..., SCRIPT
+                        }
+                </script>
+                ...more stuff...
+                </body>
+                </html>
+                        
+
+
+                        
+                        // change the background color to red
+                        document.body.style.background = "red";
+
+                        // change it back after 1 second
+                        setTimeout(() => document.body.style.background = "", 1000);    
+                    </script-->
+                    
+                    
+                    <!--DOM collections are read-only 
+                        DOM collections are live
+                        Don’t use for..in to loop over collections
+
+                        ** Searching: getElement* and querySelector **
+                        <div id="elem">
+                            <div id="elem-content">Element</div>
+                        </div>
+                        <script>
+                        let elem = document.getElementById('elem');
+                        elem.style.background = 'red';
+                        </script>
+
+                        Only document.getElementById, not anyNode.getElementById
+                        The method getElementById that can be called only on document object. 
+                        It looks for the given id in the whole document.
+
+                        ** elem.getElementsByTagName(tag) **
+                        <table id="table">
+                            <tr>
+                                <td>Your age:</td>
+                                <td>
+                                <label>
+                                    <input type="radio" name="age" value="young" checked> less than 18
+                                </label>
+                                <label>
+                                    <input type="radio" name="age" value="mature"> from 18 to 50
+                                </label>
+                                <label>
+                                    <input type="radio" name="age" value="senior"> more than 60
+                                </label>
+                                </td>
+                            </tr>
+                            </table>
+                            <script>
+                            let inputs = table.getElementsByTagName('input');
+                            for (let input of inputs) {
+                                alert( input.value + ': ' + input.checked );
+                            }
+                            </script>
+
+                        ** querySelectorAll***
+                        <ul>
+                        <li>The</li>
+                        <li>test</li>
+                        </ul>
+                        <ul>
+                        <li>has</li>
+                        <li>passed</li>
+                        </ul>
+                        <script>
+                        let elements = document.querySelectorAll('ul > li:last-child');
+                        for (let elem of elements) {
+                            alert(elem.innerHTML); // "test", "passed"
+                        }
+                        </script>
+
+                        *****closest*******
+                        <h1>Contents</h1>
+                            <div class="contents">
+                            <ul class="book">
+                                <li class="chapter">Chapter 1</li>
+                                <li class="chapter">Chapter 1</li>
+                            </ul>
+                            </div>
+                            <script>
+                            let chapter = document.querySelector('.chapter'); // LI
+                            alert(chapter.closest('.book')); // UL
+                            alert(chapter.closest('.contents')); // DIV
+                            alert(chapter.closest('h1')); // null (because h1 is not an ancestor)
+                            </script>
+                        
+                    *********************************************************
+                     *****console.dir(elem) versus console.log(elem)******
+                console.log(elem) shows the element DOM tree.
+                console.dir(elem) shows the element as a DOM object, good to explore its properties.
+
+                elem.nodeType == 1 for element nodes,
+                elem.nodeType == 3 for text nodes,
+                elem.nodeType == 9 for the document object,
+                there are few other values in the specification.
+                For instance:
+                <body>
+                <script>
+                let elem = document.body;
+                // let's examine what it is?
+                alert(elem.nodeType); // 1 => element
+                // and the first child is...
+                alert(elem.firstChild.nodeType); // 3 => text
+                // for the document object, the type is 9
+                alert( document.nodeType ); // 9
+                </script>
+                
+</body>
+
+                    -->
+
+</body>
+</html>
